@@ -1,11 +1,12 @@
 apiVersion: chaitu.backstage.io/v1alpha1
 kind: Template
 metadata:
-  name: chaitu
+  name: template-name
+  title: template-title
   description: The place to be, for great artists
 spec:
   type: service
-  owner: artist-relations-team
+  owner: backstage/techdocs-core
   
   steps:
     - id: log-message
